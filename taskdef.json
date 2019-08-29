@@ -1,0 +1,26 @@
+{
+    "jobDefinitionName": "payfacto-batch-def",
+    "jobDefinitionArn": "{{jobDefArn}}",
+    "revision": 1,
+    "status": "ACTIVE",
+    "type": "container",
+    "parameters": {},
+    "retryStrategy": {
+        "attempts": 2
+    },
+    "containerProperties": {
+        "image": "{{image}}",
+        "vcpus": 3,
+        "memory": 1024,
+        "command": [],
+        "jobRoleArn": "{{jobRoleArn}}",
+        "volumes": [],
+        "environment": [],
+        "mountPoints": [],
+        "ulimits": [],
+        "resourceRequirements": []
+    },
+    "timeout": {
+        "attemptDurationSeconds": 500
+    }
+}
