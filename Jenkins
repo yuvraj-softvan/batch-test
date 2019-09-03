@@ -42,7 +42,7 @@ pipeline {
                 sh "cat ./taskdef.json"
                 
                 // create jon definition 
-                sh "aws batch register-job-definition --job-definition-name automation-${commit_id} --type container --container-properties ./taskdef.json"
+                sh "aws batch register-job-definition --job-definition-name automation-${commit_id} --cli-input-json file://./taskdef.json"
             }
         }         
          
