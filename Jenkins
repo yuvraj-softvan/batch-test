@@ -44,7 +44,7 @@ pipeline {
                 // create jon definition 
                 sh "aws batch register-job-definition --job-definition-name payfacto-auto-test --cli-input-json file://./taskdef.json --region ${region}"
                 
-                sh "aws batch submit-job --job-name payfacto-auto-submit --job-queue payfacto-queue --job-definition payfacto-auto-test"
+                sh "aws batch submit-job --job-name payfacto-auto-submit --job-queue payfacto-queue --job-definition payfacto-auto-test --region ${region}"
             }
         }         
          
