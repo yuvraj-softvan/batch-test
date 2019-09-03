@@ -1,16 +1,16 @@
 {
-    "jobDefinitionName": "payfacto-batch-def",
+    "jobDefinitionName": "payfacto-auto-test",
     "jobDefinitionArn": "{{jobDefArn}}",
     "revision": 1,
     "status": "ACTIVE",
     "type": "container",
     "parameters": {},
     "retryStrategy": {
-        "attempts": 2
+        "attempts": 1
     },
     "containerProperties": {
         "image": "{{image}}",
-        "vcpus": 3,
+        "vcpus": 16,
         "memory": 1024,
         "command": [],
         "jobRoleArn": "{{jobRoleArn}}",
@@ -21,6 +21,6 @@
         "resourceRequirements": []
     },
     "timeout": {
-        "attemptDurationSeconds": 500
+        "attemptDurationSeconds": 100
     }
 }
