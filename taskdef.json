@@ -8,7 +8,7 @@
     },
     "containerProperties": {
         "image": "{{image}}",
-        "jobRoleArn": "{{jobRoleArn}}"
+        "jobRoleArn": "{{jobRoleArn}}",
         "vcpus": 16,
         "memory": 1024
     },
