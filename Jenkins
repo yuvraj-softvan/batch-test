@@ -39,6 +39,8 @@ pipeline {
                 
                 sh "sed -i 's|{{jobDefArn}}|${jobDefArn}|' ./taskdef.json"
                 
+                sh "cat ./taskdef.json"
+                
                 // create jon definition 
                 sh "aws batch register-job-definition --job-definition-name automation-${commit_id} --type container --container-properties ./taskdef.json"
             }
