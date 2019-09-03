@@ -10,13 +10,7 @@
     "containerProperties": {
         "image": "{{image}}",
         "vcpus": 16,
-        "memory": 1024,
-        "command": [],
-        "volumes": [],
-        "environment": [],
-        "mountPoints": [],
-        "ulimits": [],
-        "resourceRequirements": []
+        "memory": 1024
     },
     "timeout": {
         "attemptDurationSeconds": 100
