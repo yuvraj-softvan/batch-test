@@ -1,6 +1,5 @@
 {
     "jobDefinitionName": "payfacto-auto-test",
-    "jobDefinitionArn" : "{{jobDefArn}}",
     "type": "container",
     "parameters": {},
     "retryStrategy": {
