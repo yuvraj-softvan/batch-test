@@ -1,7 +1,6 @@
 {
     "jobDefinitionName": "payfacto-auto-test",
-    "revision": 1,
-    "status": "ACTIVE",
+    "jobDefinitionArn" : "{{jobDefArn}}",
     "type": "container",
     "parameters": {},
     "retryStrategy": {
@@ -9,6 +8,7 @@
     },
     "containerProperties": {
         "image": "{{image}}",
+        "jobRoleArn": "{{jobRoleArn}}"
         "vcpus": 16,
         "memory": 1024
     },
