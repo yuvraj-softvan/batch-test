@@ -1,6 +1,5 @@
 {
     "jobDefinitionName": "payfacto-auto-test",
-    "jobDefinitionArn": "{{jobDefArn}}",
     "revision": 1,
     "status": "ACTIVE",
     "type": "container",
@@ -13,7 +12,6 @@
         "vcpus": 16,
         "memory": 1024,
         "command": [],
-        "jobRoleArn": "{{jobRoleArn}}",
         "volumes": [],
         "environment": [],
         "mountPoints": [],
