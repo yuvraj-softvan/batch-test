@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        gradle "gradle 4.10.2"
+        gradle ${gradle_version}
     }
     stages {
         stage('Gradle') {
@@ -33,9 +33,9 @@ pipeline {
                 sh "cat ./taskdef.json"
                 
                 // create jon definition 
-                sh "aws batch register-job-definition --job-definition-name payfacto-auto-test --cli-input-json file://./taskdef.json --region ${region}"
+                sh "aws batch register-job-definition --job-definition-name ${job_name} --cli-input-json file://./taskdef.json --region ${region}"
                 
-                sh "aws batch submit-job --job-name payfacto-auto-submit --job-queue payfacto-queue --job-definition payfacto-auto-test --region ${region}"
+                sh "aws batch submit-job --job-name ${job_name} --job-queue ${job_queue_name} --job-definition ${job_name} --region ${region}"
             }
         }      
     }
