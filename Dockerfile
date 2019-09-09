@@ -1,14 +1,20 @@
-FROM gradle:4.10.2-jdk8-alpine AS build
-COPY --chown=gradle:gradle . /home/gradle/src
-WORKDIR /home/gradle/src
-RUN gradle build --no-daemon 
+# Start with a base image containing Java runtime
+FROM openjdk:8-jre-alpine
 
-FROM openjdk:8-jre-slim
+#Add a volume pointing to /tmp
+#VOLUME /tmp
 
-EXPOSE 8080
+#
+# Note: The following is done to be able to run both docker-compose and gradle task
+#
+# If this Dockerfile file is run by docker-compose, then we use the jar file specified as argument,
+# If it is run from gradle(buildDocker task) task then there is no argument, so we use the 
+# default jar name(tsys-trx-1.0.0.jar)
+#
+ARG jar=./build/libs/s3batch-1.0-SNAPSHOT.jar
 
-RUN mkdir /app
+#Add the application's jar to the container
+ADD $jar  s3batch-1.0-SNAPSHOT.jar
 
-COPY --from=build /home/gradle/src/build/libs/*.jar /app/s3batch-1.0-SNAPSHOT.jar
-
-ENTRYPOINT ["java", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-Djava.security.egd=file:/dev/./urandom","-jar","/app/s3batch-1.0-SNAPSHOT.jar"]
+# Run the jar file
+CMD ["java", "-jar", "s3batch-1.0-SNAPSHOT.jar"]
