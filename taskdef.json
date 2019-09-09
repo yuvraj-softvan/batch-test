@@ -9,7 +9,7 @@
         "image": "{{image}}",
         "jobRoleArn": "{{jobRoleArn}}",
         "vcpus": 16,
-        "memory": 1024
+        "memory": 1024,
         "environment": [
             {
                 "name": "CDN_ENV",
