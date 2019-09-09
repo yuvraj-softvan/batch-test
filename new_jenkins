@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        gradle ${gradle_version}
+        gradle "${gradle_version}"
     }
     stages {
         stage('Gradle') {
